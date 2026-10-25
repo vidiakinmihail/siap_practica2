@@ -4,15 +4,13 @@ import java.util.Scanner;
 
 public class task5 {
 
-    static Scanner sc = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean running = true;
-
         while (running) {
             printMenu();
             int choice = readInt();
-
             if (choice == 1) {
                 performCalculation();
             } else if (choice == 2) {
@@ -41,14 +39,11 @@ public class task5 {
 
     static void performCalculation() {
         System.out.println("\n--- Расчёт площади круга: S = 3.14 * r * r ---");
-
         double r = readPositiveDouble();
-
         if (r == -1) {
             System.out.println("Расчёт отменён.");
             return;
         }
-
         double s = 3.14 * r * r;
         System.out.println("Площадь круга = " + s);
     }
@@ -62,20 +57,18 @@ public class task5 {
 
     static void printAboutDeveloper() {
         System.out.println("\n--- О разработчике ---");
-        System.out.println("Студент: Иванов Иван Иванович");
-        System.out.println("Группа: ИС-21");
-        System.out.println("Учебное заведение: Ваш ВУЗ / колледж");
+        System.out.println("Студент: Видякин Михаил Александрович");
+        System.out.println("Группа: РИ-250912");
+        System.out.println("Учебное заведение: УрФУ");
     }
 
     static int readInt() {
         while (true) {
             System.out.print("Выберите пункт меню: ");
-            String line = sc.nextLine();
-
+            String line = scanner.nextLine();
             if (line.equals("exit") || line.equals("выход")) {
                 return 4;
             }
-
             try {
                 return Integer.parseInt(line);
             } catch (NumberFormatException e) {
@@ -87,12 +80,10 @@ public class task5 {
     static double readPositiveDouble() {
         while (true) {
             System.out.print("Введите радиус (r > 0), или 'exit' для отмены: ");
-            String line = sc.nextLine();
-
+            String line = scanner.nextLine();
             if (line.equals("exit") || line.equals("выход")) {
                 return -1;
             }
-
             try {
                 double value = Double.parseDouble(line);
                 if (value <= 0) {
